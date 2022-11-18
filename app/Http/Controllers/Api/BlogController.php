@@ -15,11 +15,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog= Blog::included()
-        ->filter()
-        ->sort()
-        ->get();
-        return $blog; 
+        $blog = Blog::included()
+            ->filter()
+            ->sort()
+            ->get();
+        return $blog;
     }
 
     /**
@@ -30,16 +30,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'titulo' => 'required|max:255',
-            'descripcion' => 'required|max:455',
-            'user_id' => 'required|max:255',
-            'imagen' => 'required|max:255',
-        ]);
-
-        $blog=Blog::create($request->all());
-
-        return $blog;
+        $blogs =$request->all();
+        $file = $request->file("imagen");
+        $nombreArchivo = "img_" . time() . "." . $file->guessExtension();
+        $request->file('imagen')->storeAs('public/imagen', $nombreArchivo);
+        $blogs['imagen'] = "$nombreArchivo";
+        Blog::create($blogs);
+        return $blogs; 
     }
 
     /**
@@ -63,10 +60,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-
-
         $blog->update($request->all());
-
         return $blog;
     }
 

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Producto extends Model
 {
 
-
+    use HasFactory;
    protected $fillable = ['id', 'nombre', 'descripcion', 'precio', 'categoria_id', 'cantidad', 'usos', 'preparacion', 'beneficios', 'cuidados', 'ubicacion', 'imagen'];
 
    protected $allowIncluded = ['user', 'categoria']; 

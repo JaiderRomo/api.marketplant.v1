@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('titulo');
             $table->text('descripcion');
-             $table->string('imagen');
+             $table->string('imagen')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade");
        

@@ -16,30 +16,30 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('blogs')->insert([
-            'titulo'  => 'las plantas',
-            'descripcion' => 'las plantas son curativas',
-            'user_id' => '1',
-            'imagen' => '',
+        // DB::table('blogs')->insert([
+        //     'titulo'  => 'las plantas',
+        //     'descripcion' => 'las plantas son curativas',
+        //     'user_id' => '1',
+        //     'imagen' => '',
            
          
-        ]);
-        DB::table('blogs')->insert([
-            'titulo'  => 'los arboles',
-            'descripcion' => 'las arboles son lindos',
-            'user_id' => '1',
-            'imagen' => '',
+        // ]);
+        // DB::table('blogs')->insert([
+        //     'titulo'  => 'los arboles',
+        //     'descripcion' => 'las arboles son lindos',
+        //     'user_id' => '1',
+        //     'imagen' => '',
            
          
-        ]);
-        DB::table('blogs')->insert([
-            'titulo'  => 'las rosas',
-            'descripcion' => 'las rosas tienen espinas',
-            'user_id' => '2',
-            'imagen' => '',
+        // ]);
+        // DB::table('blogs')->insert([
+        //     'titulo'  => 'las rosas',
+        //     'descripcion' => 'las rosas tienen espinas',
+        //     'user_id' => '2',
+        //     'imagen' => '',
            
          
-        ]);
+        // ]);
        
     }
 }

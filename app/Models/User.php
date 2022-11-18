@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
+
+
 
 class User extends Authenticatable
 {
@@ -22,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'password_confirmation',
     ];
     protected $allowIncluded = ['products', 'blogs']; 
     
@@ -56,7 +59,6 @@ class User extends Authenticatable
 
     //RELACIONES
     //uno a muchos inversa
-
     public function tipo_identificaciones()
     {
         return $this->belongsTo('App\Models\TipoIdentificacion');
@@ -68,6 +70,7 @@ class User extends Authenticatable
     {
         return $this->HasOne('App\Models\Perfil');
     }
+
     //uno a muchos
     public function blogs()
     {
